@@ -31,59 +31,17 @@ class Nursery():
                 self.plants.append(Plant(f"Plant {i}-{j}"))
 
     def spread_parasite(self, infected_plants_amount, parasite: Parasite):
-        for _ in range(infected_plants_amount):
-            sick_x = random.randint(0, self.rows - 1)
-            sick_y = random.randint(0, self.columns - 1)
-
-            self.plants[sick_x * self.columns + sick_y].infect(parasite)
+        pass
 
 
     def pass_day(self):
-        self.get_stats()
-        if self.stats["alive"] == 0:
-            raise Exception("No more alive plants.")
-        if self.stats["infected"] == 0:
-            raise Exception("No more infected plants.")
-        for i in range(self.rows):
-            for j in range(self.columns):
-                plant: Plant = self.plants[i * self.columns + j]
-                plant.pass_day()
-                self.propagate(i, j)
+        pass
 
     def propagate(self, i, j):
-        plant: Plant = self.plants[i * self.columns + j]
-        if plant.infected is True:
-            adjacent_plants = self.get_adjacent_plants(i, j)
-            for adjacent_plant in adjacent_plants:
-                if adjacent_plant.alive is False:
-                    continue
-                elif adjacent_plant.infected is True:
-                    continue
-                elif adjacent_plant.healed is True:
-                    continue
-                if random.random() < plant.parasite.chance_to_spread:
-                    self.stats["propagations"] += 1
-                    adjacent_plant.infect(plant.parasite)
+        pass
 
     def get_adjacent_plants(self, row, column):
-        adjacent_plants = []
-        if row > 0:
-            adjacent_plants.append(self.plants[(row - 1) * self.columns + column])
-        if row < self.rows - 1:
-            adjacent_plants.append(self.plants[(row + 1) * self.columns + column])
-        if column > 0:
-            adjacent_plants.append(self.plants[row * self.columns + column - 1])
-        if column < self.columns - 1:
-            adjacent_plants.append(self.plants[row * self.columns + column + 1])
-        if row > 0 and column > 0:
-            adjacent_plants.append(self.plants[(row - 1) * self.columns + column - 1])
-        if row > 0 and column < self.columns - 1:
-            adjacent_plants.append(self.plants[(row - 1) * self.columns + column + 1])
-        if row < self.rows - 1 and column > 0:
-            adjacent_plants.append(self.plants[(row + 1) * self.columns + column - 1])
-        if row < self.rows - 1 and column < self.columns - 1:
-            adjacent_plants.append(self.plants[(row + 1) * self.columns + column + 1])
-        return adjacent_plants
+        pass
 
     def get_stats(self):
         self.stats["alive"] = 0

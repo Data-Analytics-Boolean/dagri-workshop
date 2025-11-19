@@ -22,31 +22,16 @@ class Plant():
         self.healed = False
 
     def die(self):
-        """Change the status of the plant to "dead"."""
-        self.alive = False
-        self.infected = False
-        self.healed = False
+        pass
 
     def infect(self, parasite: Parasite):
-        if self.alive is False:
-            raise Exception("Cannot infect a dead plant.")
-        if self.healed is True:
-            raise Exception("Cannot infect a healed plant.")
-        self.parasite = parasite
-        self.infected = True
+        pass
 
     def heal(self):
-        if self.alive is False:
-            raise Exception("Cannot heal a dead plant.")
-        self.healed = True
-        self.infected = False
+        pass
 
     def pass_day(self):
-        if self.infected is True:
-            if random.random() < self.parasite.chance_to_kill:
-                self.die()
-            elif random.random() < self.parasite.chance_to_heal:
-                self.heal()
+        pass
 
     def __str__(self):
         """Return a glyph representation of the plant."""
