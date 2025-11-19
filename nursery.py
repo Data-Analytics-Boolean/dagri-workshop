@@ -2,6 +2,7 @@
 """
 
 import random
+from typing import List
 from parasite import Parasite
 from plant import Plant
 
@@ -10,7 +11,7 @@ class Nursery():
     """class docstring
     """
 
-    plants = []
+    plants: List[List[Plant]] = []
     rows = None
     columns = None
     stats = {
